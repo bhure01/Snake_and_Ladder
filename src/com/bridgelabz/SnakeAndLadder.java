@@ -23,12 +23,11 @@ public class SnakeAndLadder {
     }
 
     private void playOption(int diceNo) {         // check options to play
-        int optionNo = randomNumber.nextInt(3)+1;
-        System.out.println("OPtion number got " +optionNo);
+        int optionNo = randomNumber.nextInt(2)+1;
+        System.out.println("Option number got " +optionNo);
 
         switch (optionNo) {
             case NO_PLAY:
-                playerNewPosition = 0;
                 System.out.println("Player got No Play option");
                 break;
             case LADDER:
@@ -59,7 +58,7 @@ public class SnakeAndLadder {
             int diceNo = player1.rollDice();
             System.out.println("Dice no. for Player is: " +diceNo);
 
-            player1.playOption();
+            player1.playOption(diceNo);
             player1.showPlayerPosition();
         }
     }
