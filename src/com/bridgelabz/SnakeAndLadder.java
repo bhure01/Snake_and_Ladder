@@ -10,6 +10,7 @@ public class SnakeAndLadder {
     //Variables(player position)
     int playerInitialPosition = 0;
     int playerNewPosition = 0;
+    int diceCount = 0;
 
     Random randomNumber = new Random();
 
@@ -19,6 +20,8 @@ public class SnakeAndLadder {
 
     private int rollDice() {            // roll the dice and get random no.betn 1 to 6
         int diceNo = randomNumber.nextInt(6)+1;
+        diceCount++;
+        System.out.println("Dice count - " +diceCount);
         return diceNo;
     }
 
@@ -41,7 +44,6 @@ public class SnakeAndLadder {
             case SNAKE:
                 playerInitialPosition = playerInitialPosition + diceNo;
                 System.out.println("OOPS! Player Got Snake option");
-
                 if (playerInitialPosition < 0) {
                     playerInitialPosition = 0;
                 }
