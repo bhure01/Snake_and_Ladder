@@ -11,6 +11,7 @@ public class SnakeAndLadder {
     int playerInitialPosition = 0;
     int playerNewPosition = 0;
     int diceCount = 0;
+    int diceNo = 0;
 
     Random randomNumber = new Random();
 
@@ -53,15 +54,32 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and Ladder Gaming program");
+
         SnakeAndLadder player1 = new SnakeAndLadder();
-        player1.showPlayerPosition(); //show player position
+        SnakeAndLadder player2 = new SnakeAndLadder();
 
-        while (player1.playerInitialPosition != 100) {
-            int diceNo = player1.rollDice();
-            System.out.println("Dice no. for Player is: " +diceNo);
+        player1.showPlayerPosition(); //show player1 position
+        player2.showPlayerPosition();  // show player2 position
 
-            player1.playOption(diceNo);
+        while (player1.playerInitialPosition != 100 && player2.playerInitialPosition != 100 ) {      // repeat untill player reaches 100 position
+            player1.diceNo = player1.rollDice();
+            System.out.println("Dice no. for Player 1 is: " +player1.diceNo);
+
+            player1.playOption(player1.diceNo);   // player 1 checks options
             player1.showPlayerPosition();
+
+            player2.diceNo = player2.rollDice();
+            System.out.println("Dice no. for Player 2 is: " +player2.diceNo);
+
+            player2.playOption(player2.diceNo);
+            player2.showPlayerPosition();
+
+            // check for both players winning possibilities
+            if(player1.playerInitialPosition == 100) {
+                System.out.println("Player1 win the game");
+            } else {
+                System.out.println("Player2 win the game");
+            }
         }
     }
 }
